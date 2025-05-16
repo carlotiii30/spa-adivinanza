@@ -6,10 +6,10 @@ import confetti from "canvas-confetti";
 
 export default function App() {
   const [numeroAdivinar] = useState(() => Math.floor(Math.random() * 10) + 1);
-  const [intento, setIntento] = useState("");
-  const [mensaje, setMensaje] = useState("");
-  const [intentosTotales, setIntentosTotales] = useState(0);
-  const [juegoFinalizado, setJuegoFinalizado] = useState(false);
+  const [intento, setIntento] = useState<string>("");
+  const [mensaje, setMensaje] = useState<string>("");
+  const [intentosTotales, setIntentosTotales] = useState<number>(0);
+  const [juegoFinalizado, setJuegoFinalizado] = useState<boolean>(false);
 
   const comprobarIntento = () => {
     const num = parseInt(intento);
@@ -36,7 +36,9 @@ export default function App() {
       });
     }
 
-    setIntento("");
+    setTimeout(() => {
+      setIntento("");
+    }, 1000);
   };
 
   const reiniciarJuego = () => {
